@@ -1,0 +1,22 @@
+<IfModule mod_expires.c> 
+  ExpiresActive On 
+    ExpiresDefault "access 1 year" 
+    ExpiresByType image/jpg "access 1 year" 
+    ExpiresByType image/gif "access 1 year" 
+    ExpiresByType image/png "access 1 year" 
+    ExpiresByType image/jpeg "access 1 year" 
+    ExpiresByType text/x-icon "access 1 year" 
+    ExpiresByType image/x-icon "access 1 year" 
+    ExpiresByType application/pdf "access 1 year" 
+    ExpiresByType text/x-javascript "access 1 year" 
+    ExpiresByType application/x-shockwave-flash "access 1 year" 
+</IfModule> 
+<FilesMatch ".(htm|php|html|css|js)$"> 
+    AddDefaultCharset UTF-8 
+</FilesMatch> 
+<IfModule mod_rewrite.c> 
+    RewriteEngine On 
+    RewriteCond %{SCRIPT_FILENAME} !-f 
+    RewriteCond %{SCRIPT_FILENAME} !-d 
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA] 
+</IfModule>

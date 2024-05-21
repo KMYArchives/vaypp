@@ -1,0 +1,37 @@
+// Load's all files required at once time
+@import '_autoload';
+
+// Load the profile elements page
+@import 'components/_profile';
+
+// Load the feed elements page
+@import 'components/_feed';
+
+// Body startup in components/_global.scss
+@include body{
+
+    // Header component in components/_global.scss
+    @include header($padding2 * 24.5);
+
+    // Avatar and cover of user in components/_profile.scss
+    @include cover-user();
+
+    // Menu options of user in components/_feed.scss
+    @include navbar-items();
+
+    // About user info components/_profile.scss
+    @include about-user();
+
+    // Photo's area of user info components/_profile.scss
+    @include photos-user();
+
+    // Follow's area of user info components/_profile.scss
+    @include followers-user();
+
+    // New post components/_feed.scss
+    @include modal();
+
+    // Article's of user components/_feed.scss
+    @include articles-user();
+    
+}

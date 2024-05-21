@@ -1,0 +1,18 @@
+// Setup files required to run website
+@import 'setup/_colors'; // Colors of project
+
+@import 'setup/_setup'; // Variables of project
+
+@import 'setup/_extends'; // Extend's class of project
+
+@import 'setup/_mixins'; // Mixin's of project
+
+// Global elements style
+@import 'components/_global';
+
+// Load the icon font (Material icons)
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+// Load the icon font (Fontawesome icons)
+@import url('https://use.fontawesome.com/releases/v5.0.6/css/all.css');
+// Load the default font of project (Roboto)
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext');

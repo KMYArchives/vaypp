@@ -1,0 +1,50 @@
+// Background color
+$bgColor: #f5f5f5;
+
+// Main color
+$firstColor: #ffffff;
+// Second color
+$secondColor: #fafafa;
+
+// Black color
+$blackColor: #000000;
+
+// Header color
+$headerColor: #3d5afe;
+
+// Actived color
+$activedColor: $headerColor;
+
+// Color of border's
+$borderColor: #eeeeee;
+
+// Color that was used on cover of profile
+$effectColor: #00aacc;
+
+// Shadow color
+$shadowColor: rgba(156, 156, 156, .2);
+
+// Text and icon color's
+$fontColor: #777777;
+
+$iconColor: $fontColor;
+// By default the colors of both are same color
+
+// Like and deslike hover color
+$likeColor: #2e7d32;
+$deslikeColor: #c62828; // Deslike
+
+
+// Social networks colors
+@mixin socialColors{
+	.fa-twitter:hover, .fa-twitter-square:hover{ color: #55ACEE; }
+	.fa-pinterest:hover, .fa-pinterest-square:hover{ color: #BD081C; }
+	.fa-facebook:hover, .fa-facebook-official:hover, .fa-facebook-square:hover{ color: #3B5998; }
+	.fa-google-plus:hover, .fa-google-plus-official:hover, .fa-google-plus-square:hover{ color: #DD4B39; }
+	.fa-tumblr:hover, .fa-tumblr-square:hover{ color: #35465C; }
+	.fa-github:hover, .fa-github-square:hover{ color: #333333; }
+	.fa-delicious:hover{ color: #205CC0; }
+	.fa-flipboard:hover{ color: #E12828; }
+	.fa-instagram:hover{ color: #FB3958; }
+	.fa-linkedin:hover{ color: #007AB6; }
+}

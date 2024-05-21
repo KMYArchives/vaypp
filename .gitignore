@@ -1,0 +1,31 @@
+# Path of tests, demonstration's and development will be ignored by git
+
+[Tt]ests/
+[Ll]abs/
+
+# Path of project that will be ignored by git
+
+.sass-cache/
+.vscode/
+.ide/
+
+# Ignore all .css.map files
+
+*.css.map
+
+# Ignore the test's file's
+
+[Tt]este.php
+[Tt]ests.php
+[Tt]est.php
+
+# Ignore the package-lock.json
+
+package-lock.json
+
+# Ignore media files
+*.mp3
+*.mp4
+
+# Ignore database files
+*.sql

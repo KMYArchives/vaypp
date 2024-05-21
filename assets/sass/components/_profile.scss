@@ -1,0 +1,434 @@
+// Cover of user
+@mixin cover-user{
+    .cover-user{
+        top: 0;
+        width: 100%;
+        z-index: 9999;
+        height: $coverSize;
+        a{
+            right: 0;
+            .icon{
+                top: 0;
+                float: left;
+                position: absolute;
+                border-radius: 100%;
+                width: $padding * 4;
+                height: $padding * 4;
+                margin-left: -$padding / 2;
+                margin-right: $padding2 * 2;
+                margin-top: $padding2 * 1.1;
+            }
+            .name-icon{ margin-left: $padding * 5; }
+        }
+
+        // Cover of user
+        .banner{
+            top: 0;
+            width: 100%;
+            float: left;
+            z-index: 222;
+            background: $blackColor;
+            height: $coverSize * 2.13;
+            img{
+                opacity: .5;
+                width: 100%;
+                height: 100%;
+                z-index: 230;
+                background-color: $effectColor;
+            }
+        }
+
+        // Edit cover of user
+        .edit-cover{
+            top: 0;
+            opacity: .5;
+            float: right;
+            z-index: 222;
+            opacity: .75;
+            cursor: pointer;
+            font-size: 115%;
+            position: relative;
+            margin-top: -$coverSize * 1.25;
+            margin-right: $positionAvatar / 2;
+
+            // Edit cover
+            .fas, .far{
+                top: 0;
+                z-index: 9999;
+                position: absolute;
+                color: $firstColor;
+                margin-top: -$coverSize / 2;
+            }
+
+            &:hover, &:focus{ opacity: 1; }
+        }
+
+        // Actvied the menu edit cover
+        .actived-edit-cover-menu{ opacity: 1; }
+
+        // Edit banner mode
+        .edit-your-banner{
+            top: 15%;
+            right: 0;
+            opacity: .85;
+            width: 12.5%;
+            z-index: 333;
+            display: none;
+            color: inherit;
+            margin-right: 1%;
+            position: absolute;
+            padding-top: $padding2;
+            background: $firstColor;
+            margin-top: $padding / 2;
+            padding-bottom: $padding2;
+            @include border-radius($padding);
+            @include box-shadow(0, $padding, $padding);
+            .item{
+                display: block;
+                font-size: 80%;
+                cursor: pointer;
+                font-weight: 500;
+                text-align: center;
+                padding: $padding2;
+
+                // Icon
+                .fas, .far, .fab{
+                    float: left;
+                    margin-top: $padding / 2.5;
+                }
+
+                &:hover, &:focus{
+                    color: $firstColor;
+                    background: $headerColor; 
+                }
+            }
+        }
+
+        // Avatar of user
+        .avatar{
+            top: 0;
+            float: left;
+            z-index: 222;
+            position: relative;
+            width: $avatarWSize;
+            height: $avatarHSize;
+            padding: $padding / 4;
+            background: $firstColor;
+            margin-top: -$coverSize;
+            margin-left: $positionAvatar;
+            @include border-radius($padding);
+            @include box-shadow(0, $padding, $padding);
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: $padding;
+                @include filter(grayscale, 50%);
+                @include border-radius($padding);
+                border: $borderSize * 5 solid $firstColor;
+            }
+
+            // Play bar
+            .playbar{
+                left: 0;
+                bottom: 0;
+                opacity: 0;
+                width: 100%;
+                z-index: 9999;
+                cursor: pointer;
+                font-weight: 600;
+                padding: $padding2;
+                position: absolute;
+                text-align: center;
+                color: $firstColor;
+                height: $padding2 * 2.6;
+                background: $headerColor;
+                margin-bottom: -$padding2 * .01;
+                border-bottom-left-radius: $padding;
+                border-bottom-right-radius: $padding;
+
+                .get-time{
+                    float: right;
+                    font-size: 80%;
+                    display: none;
+                    margin-top: -$padding;
+                }
+
+                // Play button
+                .fa-play{
+                    top: 0;
+                    left: 50%;
+                    display: none;
+                    position: absolute;
+                    margin-top: $padding * 1.65;
+                }
+
+                // Pause button
+                .fa-pause{
+                    top: 0;
+                    float: left;
+                    display: none;
+                    position: absolute;
+                    margin-top: $padding * 1.65;
+                }
+
+                // Hover of playbar
+                &:hover, &:focus{
+                    color: $firstColor;
+                    background: $activedColor;
+                }
+            }
+        }
+
+        // Name of user
+        .info{
+            z-index: 224;
+            font-weight: 400;
+            color: $firstColor;
+            position: absolute;
+            margin-top: $coverSize * 1.2;
+            margin-left: $positionAvatar + $avatarWSize + 2;
+
+            // Name of user
+            .name{
+                display: block;
+                font-size: 300%;
+                font-weight: 500;
+                font-family: 'Helvetica';
+                line-height: $padding2 + .4;
+                letter-spacing: $padding2 / 6;
+                text-shadow: $shadowSize $shadowSize $shadowColor;
+            }
+
+            // Phrase of user
+            .phrase{
+                font-size: 100%;
+                font-weight: 500;
+                font-family: $font;
+            }
+
+            // Partner area
+            .partner-area{
+                margin-top: $padding2;
+
+                // Partner icon
+                .partner-icon{
+                    width: 35px;
+                    height: 35px;
+                    display: inline-block;
+                    border-radius: 100%;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        cursor: pointer;
+                        border-radius: 100%;
+                        @include filter(grayscale, 100%);
+                        border: $borderSize * 2.5 solid $firstColor;
+                        &:hover{
+                            @include filter(grayscale, 50%);
+                        }
+                    }
+                }
+
+                // Name of partner
+                .name-partner{
+                    top: -20;
+                    font-size: 100%;
+                    font-weight: 400;
+                    font-family: $font;
+                    color: $firstColor;
+                    position: absolute;
+                    margin-top: $padding;
+                    margin-left: $padding2;
+                    a:hover{ text-decoration: underline; }
+                }
+            }
+
+        }
+
+    }
+}
+
+// About the user
+@mixin about-user{
+    .about-user{
+        left: 0;
+        height: 21em;
+        position: absolute;
+        width: $sidebarSize;
+        background: $firstColor;
+        margin-bottom: $padding2;
+        margin-top: $padding2 * 1.5;
+        margin-left: $positionAvatar;
+        @include box-shadow(0, $padding, $padding);
+
+        // Header of sidebar
+        h2{
+            top: 0;
+            margin-top: 0;
+            font-size: 115%;
+            padding: $padding2;
+            padding-right: $padding / 2;
+
+            // Social media icons
+            .menu-social{
+                float: right;
+                font-size: 85%;
+                padding-right: $padding;
+
+                // Vaypp trophy
+                .fa-trophy{
+                    margin-right: $padding2 / 2;
+                    &:hover{ color: #FFCA28; }
+                }
+
+                // Icon of website of user
+                .fa-globe{
+                    cursor: pointer;
+                    margin-right: $padding / 2;
+                    &:hover, &:focus{ color: $headerColor; }
+                }
+
+                // Social media icons
+                .fab{
+                    cursor: pointer;
+                    margin-left: $padding / 2;
+                    margin-right: $padding / 2;
+                }
+                @include socialColors();
+            }
+        }
+
+        // Information's of user
+        .bio{
+            top: 0;
+            margin-top: -$padding2;
+
+            // List item
+            ul{
+
+                // Item
+                li{
+                    font-size: 84%;
+                    padding: $padding2 / 1.5;
+                    .fas, .fab, .fas{
+                        margin-left: $padding;
+                        margin-right: $padding;
+                    }
+                    a:hover{ text-decoration: underline; }
+                }
+
+            }
+        }
+    }
+}
+
+// Photo's of user
+@mixin photos-user{
+    .photos-user{
+        left: 0;
+        height: 16.5em;
+        margin-top: 24em;
+        position: absolute;
+        width: $sidebarSize;
+        margin-right: $padding2;
+        background: $firstColor;
+        margin-bottom: $padding2;
+        margin-left: $positionAvatar;
+        @include box-shadow(0, $padding, $padding);
+
+        // Friend's label
+        h3{
+            font-size: 100%;
+            padding-left: $padding2;
+            padding-right: $padding2;
+            // View more link
+            .view-more{
+                float: right;
+                font-size: 90%;
+                color: inherit;
+                cursor: pointer;
+                text-decoration: none;
+                &:hover, &:focus{ text-decoration: underline; }
+            }
+        }
+
+        // Photo's of user
+        .center{
+            text-align: center;
+            
+            .photo{
+                width: 100% / 5;
+                padding: $padding;
+                display: inline-block;
+                margin-left: -$padding;
+                margin-right: -$padding;
+                a{
+                    img{
+                        cursor: pointer;
+                        width: $padding2 * 5;
+                        max-width: $padding2 * 5;
+                        @include filter(grayscale, 100%);
+                        @include border-radius($padding / 2);
+                        &:hover, &:focus{ @include filter(grayscale, 50%); }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// Follower's of user
+@mixin followers-user{
+    .followers-user{
+        left: 0;
+        height: 16.5em;
+        margin-top: 42em;
+        position: absolute;
+        width: $sidebarSize;
+        background: $firstColor;
+        margin-bottom: $padding2;
+        margin-left: $positionAvatar;
+        @include box-shadow(0, $padding, $padding);
+
+        // Friend's label
+        h3{
+            font-size: 100%;
+            padding-left: $padding2;
+            padding-right: $padding2;
+            // View more link
+            .view-more{
+                float: right;
+                font-size: 90%;
+                color: inherit;
+                cursor: pointer;
+                text-decoration: none;
+                &:hover, &:focus{ text-decoration: underline; }
+            }
+        }
+
+        // Photo's of user
+        .center{
+            text-align: center;
+            
+            .photo{
+                width: 100% / 5;
+                padding: $padding;
+                display: inline-block;
+                margin-left: -$padding;
+                margin-right: -$padding;
+                a{
+                    img{
+                        cursor: pointer;
+                        width: $padding2 * 5;
+                        max-width: $padding2 * 5;
+                        @include filter(grayscale, 100%);
+                        @include border-radius($padding / 2);
+                        &:hover, &:focus{ @include filter(grayscale, 50%); }
+                    }
+                }
+            }
+        }
+
+    }
+}

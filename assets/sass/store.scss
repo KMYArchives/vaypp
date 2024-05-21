@@ -1,0 +1,13 @@
+// Load's all files required at once time
+@import '_autoload';
+
+// Store component'as
+@import 'components/_store';
+
+// Body startup in components/_global.scss
+@include body{
+
+    // Header component in components/_global.scss
+    @include header($padding2 * 24.5);
+    
+}

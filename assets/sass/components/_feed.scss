@@ -1,0 +1,645 @@
+// New post lightbox
+@mixin modal($width: 38em, $margin-left: 31em){
+    .modal{
+        top: 25%;
+        left: 50%;
+        width: $width;
+        display: none;
+        position: fixed;
+        text-align: center;
+        z-index: 9999999999;
+        background: $firstColor;
+        margin-bottom: $padding2;
+        padding-bottom: $padding;
+        margin-left: -$width / 2.3;
+
+        header{
+            font-size: 125%;
+            text-align: left;
+            font-weight: 500;
+            padding: $padding2;
+            background: $secondColor;
+
+            // Icon of close
+            .fa-times{
+                float: right;
+                cursor: pointer;
+                padding: $padding;
+                margin-right: $padding;
+                margin-top: -$padding / 2;
+                &:hover, &:focus{ background: $firstColor; }
+            }
+        }
+
+        ul{
+            // Item list
+            li{
+                display: inline-block;
+
+                // Button's of new post
+                .buttons{
+                    cursor: pointer;
+                    font-size: 130%;
+                    padding: $padding;
+                    width: $padding2 * 4.5;
+                    @include border-radius($padding);
+                    .label{
+                        font-size: 60%;
+                        font-weight: 500;
+                    }
+                    &:hover, &:focus{
+                        background: $secondColor;
+                        @include box-shadow(0, $padding / 2, $padding / 2);
+                    }
+                }
+            }
+        }
+
+        // Link of new post
+        a{
+            font-weight: 500;
+            color: $headerColor;
+            &:hover, &:focus{ text-decoration: underline; }
+        }
+
+        // Form of new post
+        form{
+            
+            // Textarea
+            textarea{
+                width: 100%;
+                resize: none;
+                border: none;
+                outline: none;
+                padding: $padding2;
+                color: $headerColor;
+                height: $padding2 * 6.5;
+                background: $firstColor;
+                &:focus{ background: $secondColor; }
+            }
+
+            // Privacy label of post
+            .privacy-label{
+                top: 0;
+                float: right;
+                outline: none;
+                font-size: 85%;
+                cursor: pointer;
+                font-weight: 500;
+                padding: $padding;
+                padding-left: $padding2;
+                margin-right: $padding2;
+                padding-right: $padding2;
+                margin-top: $padding / 1.8;
+
+                // Icon
+                @extend .fas, .far, .fab;
+                .fas, .far, .fab{
+                    &:hover, &:focus{ color: inherit; }
+                }
+                &:hover, &:focus{ background: $secondColor; }
+            }
+
+            button{
+                float: right;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                margin-top: -$padding;
+                padding-top: $padding2;
+                background: $firstColor;
+                padding-left: $padding2;
+                padding-right: $padding2;
+                padding-bottom: $padding2;
+                &:hover, &:focus{
+                    color: $firstColor;
+                    background: $headerColor;
+                }
+            }
+        }
+    }
+}
+
+// Comment's of post's
+@mixin comments{
+    .comments{
+        display: none;
+        padding: $padding2;
+        background: $secondColor;
+        border-top: $borderSize solid $borderColor;
+
+        // Form of make new comment
+        form{
+            margin-top: $padding2;
+            padding-top: $padding2;
+            border-top: $borderSize solid $borderColor;
+
+            // Avatar of user
+            .avatar-new-comm{
+                float: left;
+                z-index: 222;
+                margin-right: $padding;
+                width: $padding2 * 2.6;
+                height: $padding2 * 2.6;
+                background: $firstColor;
+                margin-top: $padding / 2;
+                @include border-radius($padding);
+
+                @extend img;
+                img{
+                    @include filter(grayscale, 0%);
+                }
+            }
+
+            // Open emoji menu
+            .emoji{
+                float: right;
+                cursor: pointer;
+                padding: $padding;
+                margin-top: $padding / 2;
+                @include border-radius($padding);
+                .fas, .far{ padding-top: $padding / 1.5; }
+                &:hover, &:focus{ background: $firstColor; }
+            }
+            
+            // Textarea of comment
+            textarea{
+                width: 83.5%;
+                resize: none;
+                border: none;
+                outline: none;
+                color: inherit;
+                font-size: 85%;
+                overflow: hidden;
+                padding: $padding2;
+                margin-left: $padding;
+                display: inline-block;
+                background: $firstColor;
+                margin-bottom: $padding;
+                @include border-radius($padding);
+                border: $borderSize solid $firstColor;
+                @include placeholder($fontColor);
+            }
+        }
+
+        // Comment item
+        .item-comment{
+            padding-bottom: $padding2;
+            
+            // Avatar of user
+            .avatar-comm{
+                float: left;
+                z-index: 222;
+                width: $padding2 * 3;
+                margin-top: $padding;
+                height: $padding2 * 3;
+                margin-right: $padding;
+                background: $firstColor;
+                @include border-radius($padding);
+
+                @extend img;
+                img{
+                    @include filter(grayscale, 0%);
+                }
+            }
+
+            // Name of owner the comment
+            .name{
+                float: left;
+                display: block;
+                font-size: 80%;
+                cursor: pointer;
+                font-weight: 500;
+                padding: $padding;
+                color: $headerColor;
+                margin-left: $padding;
+                text-decoration: none;
+                margin-right: $padding;
+                &:hover, &:focus{ text-decoration: underline; }
+            }
+            
+            // Content of comment
+            .content{
+                width: 90.5%;
+                resize: none;
+                border: none;
+                outline: none;
+                color: inherit;
+                font-size: 85%;
+                overflow: hidden;
+                padding: $padding2;
+                display: inline-block;
+                background: $firstColor;
+                @include border-radius($padding);
+                border: $borderSize solid $firstColor;
+                @include placeholder();
+            }
+
+            // Date of the comment
+            .date{
+                float: left;
+                display: block;
+                font-size: 70%;
+                font-weight: 500;
+                color: $fontColor;
+                margin-right: $padding;
+                margin-top: $padding2 / 1.75;
+            }
+
+            // Reply the comment
+            .reply{
+                float: right;
+                display: block;
+                font-size: 80%;
+                cursor: pointer;
+                font-weight: 500;
+                color: $headerColor;
+                text-decoration: none;
+                margin-right: $padding;
+                @extend .fas, .far, .fab;
+                &:hover, &:focus{ text-decoration: underline; }
+            }
+        }
+
+        // Replied counter comment
+        .count-replied{
+            font-size: 80%;
+            cursor: pointer;
+            font-weight: 500;
+            color: $headerColor;
+            margin-top: -$padding2;
+            margin-left: $padding2;
+            margin-bottom: $padding;
+            @extend .fas, .far, .fab;
+            &:hover, &:focus{ text-decoration: underline; }
+        }
+
+        // Load more comment's
+        .load-more{
+            font-size: 80%;
+            cursor: pointer;
+            font-weight: 500;
+            color: $headerColor;
+            margin-left: $padding;
+            margin-top: -$padding;
+            margin-bottom: $padding;
+            @extend .fas, .far, .fab;
+            &:hover, &:focus{ text-decoration: underline; }
+        }
+
+        // Load more reply's
+        .lm-replied{
+            display: none;
+            margin-top: -$padding;
+            margin-left: $padding2;
+        }
+
+        // Replied comment
+        .replied{
+            display: none;
+            margin-left: $padding2;
+            .content{ width: 90%; }
+            .reply{ margin-right: $padding * 1.5; }
+        }
+
+    }
+}
+
+// Edit post box
+@mixin edit-post-box{
+    .edit-post{
+        right: 0;
+        z-index: 333;
+        display: none;
+        color: inherit;
+        position: absolute;
+        padding-top: $padding2;
+        background: $secondColor;
+        padding-bottom: $padding2;
+        margin-right: $padding / 1.5;
+        margin-top: -$padding2 / 2.3;
+        @include box-shadow(0, $padding, $padding);
+
+        // Actvied menu
+        @include actv();
+
+        ul{
+            margin: 0;
+
+            li{
+
+                // Link that execute the function
+                a{
+                    display: block;
+                    font-size: 65%;
+                    cursor: pointer;
+                    font-weight: 500;
+                    padding: $padding2;
+    
+                    // Icon
+                    .fas, .far, .fab{
+                        float: left;
+                        margin-right: $padding2;
+                        margin-top: $padding / 2.5;
+                    }
+    
+                    &:hover, &:focus{
+                        color: $firstColor;
+                        background: $headerColor; 
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Post's of user
+@mixin articles-user($width: $postSize, $margin-left: 31em){
+    article{
+        left: 0;
+        width: $width;
+        display: block;
+        position: relative;
+        background: $firstColor;
+        margin-bottom: $padding2;
+        margin-left: $margin-left;
+        margin-right: $margin-left;
+        margin-top: $padding2 * 1.5;
+        @include box-shadow(0, $padding, $padding);
+
+        // Header of article
+        header{
+            top: 0;
+            margin-top: 0;
+            font-size: 115%;
+            padding: $padding2;
+            padding-right: $padding / 2;
+
+            .name-user-pub{
+                margin-top: -$padding;
+
+                // Avatar of user
+                .avatar-pub{
+                    top: 0;
+                    float: left;
+                    z-index: 222;
+                    position: relative;
+                    width: $padding2 * 2.6;
+                    height: $padding2 * 2.6;
+                    background: $firstColor;
+                    margin-right: $padding2;
+
+                    @extend img;
+                    img{
+                        @include filter(grayscale, 0%);
+                    }
+                }
+
+                // Name of user
+                h3{
+                    top: 0;
+                    left: 0;
+                    font-size: 75%;
+                    font-weight: 500;
+                    display: inline-block;
+                    margin-top: -$padding2 * 5;
+                    margin-bottom: -$padding2 * 6;
+                    a{
+                        &:hover, &:focus{ text-decoration: underline; }
+                    }
+                }
+
+                label{
+                    font-size: 70%;
+                    display: block;
+                    padding-top: -$padding2;
+                }
+            }
+
+            // Option's menu icons
+            .menu-options{
+                top: 0;
+                float: right;
+                font-size: 75%;
+                padding-right: $padding;
+                margin-top: -$padding2 * 3.5;
+
+                // Privacy label    
+                .privacy-label{
+                    top: 0;
+                    outline: none;
+                    cursor: pointer;
+                    padding: $padding;
+                    display: inline-block;
+                    margin-right: $padding2;
+                    margin-top: -$padding / 1.5;
+                    .fas, .far{
+                        &:hover, &:focus{ color: inherit; }
+                    }
+                }
+
+                // Menu icons
+                .far, .fas{
+                    cursor: pointer;
+                    &:hover, &:focus{ background: $secondColor; }
+                }
+
+                // Bar icon
+                .menu-top-edit-post{
+                    padding: $padding2;
+                    margin-right: -$padding / 2;
+                }
+
+                // Actived background
+                @include actv{ @include box-shadow(0, $padding, $padding); }
+                
+            }
+
+            // Edit box
+            @include edit-post-box();
+
+        }
+
+        // Body of article
+        p{
+            margin: auto;
+            font-size: 140%;
+            font-weight: 500;
+            text-align: center;
+            padding-left: $padding2;
+            padding-right: $padding2;
+            padding-bottom: $padding;
+        }
+
+        // Class for use to bigger or giant text
+        .bigger-text{
+            font-size: 115%;
+            font-weight: 400;
+            text-align: left;
+        }
+
+        // Photo embed
+        figure{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: -$padding; 
+            padding-left: $padding;
+            padding-right: $padding;
+            margin-bottom: -$padding / 1.2;
+
+            @extend img;
+            img{
+                @include border-radius(0);
+                @include filter(grayscale, 0%);
+            }
+            legend{ padding: $padding2; }
+        }
+
+        // Video embed
+        .video-js{
+            width: 100%;
+            margin: auto;
+            height: $padding2 * 38;
+        }
+
+        // Footer of post
+        footer{
+            bottom: 0;
+            width: 100%;
+            position: relative;
+
+            // Fix the bug of margin left
+            .no-margin{ margin-left: -$padding / 2; }
+
+            // Button's of post
+            .btn-opt{
+                width: 18%;
+                color: inherit;
+                cursor: pointer;
+                padding: $padding2;
+                display: inline-block;
+
+                // Text of button
+                .label-button{
+                    font-size: 75%;
+                    font-weight: 600;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+
+                // Icon
+                .fas, .far{
+                    float: left;
+                    font-size: 100%;
+                }
+                &:hover, &:focus{ background: $secondColor; }
+            }
+
+            // Like hover color
+            .like-btn:hover{ color: $likeColor; }
+
+            // Deslike hover color
+            .deslike-btn:hover{ color: $deslikeColor; }
+
+            // Actived menu
+            @include actv();
+        }
+
+        // Include comment's area
+        @include comments();
+
+    }
+}
+
+// Main menu of profile
+@mixin navbar-items{
+    .nav-items{
+        top: 0;
+        width: 100%;
+        z-index: 9999;
+        background: $firstColor;
+        margin-top: $coverSize * 1.12;
+        height: $headerSize + $padding / 4;
+        @include box-shadow(0, $padding, $padding);
+        padding-left: $positionAvatar + $avatarWSize + 1.8;
+
+        // List of Items
+        ul{
+ 
+            li{
+                display: inline-block;
+
+                // Item
+                .item{
+                    outline: none;
+                    font-size: 93%;
+                    cursor: pointer;
+                    font-weight: 600;
+                    color: $fontColor;
+                    text-align: center;
+                    display: inline-block;
+                    text-decoration: none;
+                    margin-right: $padding;
+                    width: $headerSize * 1.6;
+                    text-transform: uppercase;
+                    padding-top: $padding2 * 1.7;
+                    &:hover, &:focus{
+                        color: $activedColor;
+                        background: $secondColor;
+                        border-color: $activedColor;
+                    }
+                    &:hover:after{width: 100%}
+                    &:after{
+                        width: 0;
+                        content: '';
+                        padding: none;
+                        display: block;
+                        height: $borderSize * 5;
+                        background: $activedColor;
+                        margin-top: $padding2 * 1.2;
+                        @include transition(width .3s);
+                    }
+                }
+                .actived{
+                    color: $activedColor;
+                }
+            }
+
+            // Buttons right control that stay on main bar of profile page 
+            .btn-controls{
+                float: right;
+                margin-top: $padding2 / 1.1;
+                margin-right: $positionAvatar;
+    
+                // Space between label and icon
+                .space{
+                    display: inline-block;
+                    margin-left: $padding / 2;
+                }
+                
+                // Button's options
+                .btn-right{
+                    outline: none;
+                    cursor: pointer;
+                    font-weight: 600;
+                    color: $firstColor;
+                    padding-top: $padding;
+                    display: inline-block;
+                    padding-left: $padding2;
+                    padding-right: $padding2;
+                    padding-bottom: $padding;
+                    background: $headerColor;
+                    margin-top: -$borderSize * 2;
+                    @include border-radius($padding);
+                    border: $borderSize * 2 solid $headerColor;
+                    &:hover, &:focus{
+                        color: $headerColor;
+                        background: $firstColor;
+                        border-color: $headerColor;
+                    }
+                }
+            }
+
+        }
+    }
+}

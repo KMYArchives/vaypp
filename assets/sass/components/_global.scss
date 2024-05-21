@@ -1,0 +1,69 @@
+@mixin body{
+    body{
+        margin: 0;
+        padding: 0;
+        color: $fontColor;
+        font-family: $font;
+        background: $bgColor;
+
+        // Mask for lightbox
+        @include mask();
+
+        // Content of style page
+        @content;
+    }
+}
+
+// Header of system
+@mixin header($margin-right: $padding * 25){
+    .nav-wrapper{
+        z-index: 9999999999;
+        background: $headerColor;
+
+        .input-field{
+            width: 60%;
+            float: right;
+            margin-right: $margin-right;
+            input{
+                @include placeholder();
+            }
+        }
+        
+        .hide-on-med-and-down{
+            top: 0;
+            right: 0;
+            position: fixed;
+        }
+
+        a{
+            right: 0;
+            .icon{
+                top: 0;
+                float: left;
+                position: absolute;
+                width: $padding * 4;
+                height: $padding * 4;
+                margin-left: -$padding / 2;
+                margin-right: $padding2 * 2;
+                margin-top: $padding2 * 1.1;
+                @include border-radius(100%);
+            }
+            .name-icon{ margin-left: $padding * 5; }
+        }
+
+        // Logo da Vaypp
+        .brand-logo{
+            top:0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            margin-top: -20px;
+            background-size: 50%;
+            margin-left: $padding2 * 2.5;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-image: url("../imgs/logo.png");
+        }
+
+    }
+}
